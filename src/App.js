@@ -3,6 +3,7 @@ import { v4 as uuid } from "uuid";
 // import { useQuery } from "@apollo/react-hooks";
 import { useQuery } from "@apollo/client";
 import { GET_TODOS } from "./graphql/queries";
+import AddTodo from "./components/AddTodo";
 // list todos - query
 
 // mutations:
@@ -37,7 +38,8 @@ function App() {
 
   return (
     <div>
-       App
+       TODO App
+       <AddTodo/>
        {renderTodos}
     </div>
   );
