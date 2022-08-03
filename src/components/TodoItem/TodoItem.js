@@ -2,8 +2,12 @@ import React from 'react'
 import { DeleteButton, StyledTodoItem } from './TodoItem.styles'
 import { useDrag } from "react-dnd";
 import { useMutation } from '@apollo/client';
+import { DELETE_TODO } from '../../graphql/mutations';
+import { GET_TODOS } from '../../graphql/queries';
 
 function TodoItem({todoData}) {
+
+    const [deleteTodo] = useMutation(DELETE_TODO)
 
     const [ {isDragging}, drag ] = useDrag(() => ({
         type: "todoCard",
@@ -14,14 +18,19 @@ function TodoItem({todoData}) {
     }))
 
     async function handleDeleteTodo() {
-        
+
+        await deleteTodo({
+            variables: { id: todoData.id },
+            refetchQueries: [
+                { query: GET_TODOS }
+            ]
+        })
     }
 
   return (
-    // <StyledTodoItem isDragging={isDragging}>
     <StyledTodoItem ref={drag} isDragging>
         <p>{todoData.title}, id: {todoData.id}</p>
-        <DeleteButton aria-label='delete todo'>x</DeleteButton>
+        <DeleteButton onClick={handleDeleteTodo} aria-label='delete todo'>x</DeleteButton>
     </StyledTodoItem>
   )
 }

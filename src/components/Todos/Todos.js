@@ -12,7 +12,6 @@ function Todos({todos}) {
 
     const renderTodos = todos.filter((todo) => todo.status === "TODO" ).map((todo) => <TodoItem key={todo.id} todoData={todo}/>);
 
-    // move this to in progress component
     const[{isOver}, drop] = useDrop(() => ({
         accept: "todoCard",
         drop: (item) => moveToTodos(item.id),
