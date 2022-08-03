@@ -8,6 +8,7 @@ import Loader from "./components/Loader/Loader";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Todos from "./components/Todos/Todos";
+import DragDrop from "./components/DragDrop/DragDrop";
 // list todos - query
 
 // mutations:
@@ -45,7 +46,7 @@ function App() {
     <div>
        TODO App
        <AddTodo/>
-       <Todos todos={data.todos}/>
+       <DragDrop todos={data.todos}/>
        {/* {renderTodos} */}
     </div>
     </DndProvider>
