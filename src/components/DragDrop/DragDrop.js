@@ -8,32 +8,24 @@ import Completed from '../Completed/Completed';
 function DragDrop({todos}) {
 
     // move this to in progress component
-    const[{isOver}, drop] = useDrop(() => ({
-        accept: "todoCard",
-        drop: (item) => moveToProgress(item.id),
-        collect: (monitor) => ({
-            isOver: !!monitor.isOver(),
-        })
-    }))
+    // const[{isOver}, drop] = useDrop(() => ({
+    //     accept: "todoCard",
+    //     drop: (item) => moveToProgress(item.id),
+    //     collect: (monitor) => ({
+    //         isOver: !!monitor.isOver(),
+    //     })
+    // }))
 
-    function moveToProgress(cardId) {
-        console.log("cardId: ", cardId);
-    }
+    // function moveToProgress(cardId) {
+    //     console.log("cardId: ", cardId);
+    // }
 
   return (
-    <StyledDragDrop ref={drop}>
-        <div>
-            Todos
+    // <StyledDragDrop ref={drop}>
+    <StyledDragDrop>
             <Todos todos={todos}/>
-        </div>
-        <div>
-            In Progress
             <Progress todos={todos}/>
-        </div>
-        <div>
-            complete
             <Completed todos={todos}/>
-        </div>
     </StyledDragDrop>
   )
 }

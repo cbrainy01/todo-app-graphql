@@ -8,5 +8,6 @@ export const StyledDragDrop = styled.div`
     > div {
         border: solid grey 2px;
         border-radius: 5px;
+        width: 30%;
     }
 `
