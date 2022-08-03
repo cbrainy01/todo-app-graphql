@@ -5,6 +5,9 @@ import { useQuery } from "@apollo/client";
 import { GET_TODOS } from "./graphql/queries";
 import AddTodo from "./components/AddTodo/AddTodo";
 import Loader from "./components/Loader/Loader";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import Todos from "./components/Todos/Todos";
 // list todos - query
 
 // mutations:
@@ -35,14 +38,17 @@ function App() {
   
   // console.log("returned Todos: ", returnedTodos)
   console.log("data: ", data)
-    const renderTodos = data.todos.map((todo, i) => <p key={uuid()}>{i+1}: {todo.title}</p> )
+    // const renderTodos = data.todos.map((todo, i) => <p key={uuid()}>{i+1}: {todo.title}</p> )
 
   return (
+    <DndProvider backend={HTML5Backend}>
     <div>
        TODO App
        <AddTodo/>
-       {renderTodos}
+       <Todos todos={data.todos}/>
+       {/* {renderTodos} */}
     </div>
+    </DndProvider>
   );
 }
 
