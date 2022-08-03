@@ -3,7 +3,8 @@ import { v4 as uuid } from "uuid";
 // import { useQuery } from "@apollo/react-hooks";
 import { useQuery } from "@apollo/client";
 import { GET_TODOS } from "./graphql/queries";
-import AddTodo from "./components/AddTodo";
+import AddTodo from "./components/AddTodo/AddTodo";
+import Loader from "./components/Loader/Loader";
 // list todos - query
 
 // mutations:
@@ -20,7 +21,7 @@ function App() {
     const { loading, error, data } = useQuery(GET_TODOS);
   
     if (loading) {
-      return <div>Loading...</div>;
+      return <Loader/>;
     }
     if (error) {
       console.error("error: ", error);
