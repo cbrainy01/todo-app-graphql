@@ -24,13 +24,3 @@ export const GET_TODOS = gql`
 //   }
 // `;
 
-// mutation updateTodo($id: Int, $status: String) {
-//     update_todos( where: {id: {_eq: $id}}, _set: {status: $status}) {
-//       returning {
-//         status
-//         id
-//             title
-//       }
-//     }
-//   }
-
