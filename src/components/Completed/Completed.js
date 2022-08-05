@@ -14,15 +14,17 @@ function Completed({todos}) {
   
     const[{isOver}, drop] = useDrop(() => ({
         accept: "todoCard",
-        drop: (item) => moveToCompleted(item.id),
+        drop: (item) => moveToCompleted(item.id, item.status),
         collect: (monitor) => ({
             isOver: !!monitor.isOver(),
         })
     }))
 
-    async function moveToCompleted(cardId) {
+    async function moveToCompleted(cardId, cardOrigin) {
         // if landing spot is same as takeoff spot, return. dont make api call
-        console.log("cardId: ", cardId, " to completed ");
+        // console.log("cardorgin: ", cardOrigin)
+        // console.log("cardId: ", cardId, " to completed ");
+        if(cardOrigin === "COMPLETED") { return }
         await updateTodo({
             variables: { id: cardId, status: "COMPLETED" },
             refetchQueries: [

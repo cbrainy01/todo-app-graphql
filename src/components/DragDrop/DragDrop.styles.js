@@ -9,5 +9,6 @@ export const StyledDragDrop = styled.div`
         border: solid grey 2px;
         border-radius: 5px;
         width: 30%;
+        // height: 100%;
     }
 `

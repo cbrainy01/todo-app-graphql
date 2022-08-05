@@ -9,7 +9,6 @@ function AddTodo() {
     const [userInput, setUserInput] = useState("")
     const [addTodo] = useMutation(ADD_TODO);
 
-    // const handleSubmit = async (e) => {
     async function handleSubmit(e) {
       e.preventDefault();
       if (!userInput.trim()) {
@@ -23,7 +22,7 @@ function AddTodo() {
           { query: GET_TODOS }
         ] 
       });
-      //api call to add todo
+      setUserInput("")
     }
 
   return (

@@ -14,15 +14,16 @@ function Progress({todos}) {
 
     const[{isOver}, drop] = useDrop(() => ({
         accept: "todoCard",
-        drop: (item) => moveToProgress(item.id),
+        drop: (item) => moveToProgress(item.id, item.status),
         collect: (monitor) => ({
             isOver: !!monitor.isOver(),
         })
     }))
 
-    async function moveToProgress(cardId) {
+    async function moveToProgress(cardId, cardOrigin) {
         // if landing spot is same as takeoff spot, return. dont make api call
-        console.log("cardId: ", cardId, " to in progress");
+        // console.log("cardId: ", cardId, " to in progress");
+        if(cardOrigin === "IN_PROGRESS") { return }
         await updateTodo({
             variables: { id: cardId, status: "IN_PROGRESS" },
             refetchQueries: [

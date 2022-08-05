@@ -11,7 +11,7 @@ function TodoItem({todoData}) {
 
     const [ {isDragging}, drag ] = useDrag(() => ({
         type: "todoCard",
-        item: {id: todoData.id},
+        item: {id: todoData.id, status: todoData.status},
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging(),
         })
@@ -29,7 +29,7 @@ function TodoItem({todoData}) {
 
   return (
     <StyledTodoItem ref={drag} isDragging>
-        <p>{todoData.title}, id: {todoData.id}</p>
+        <p>{todoData.title}</p>
         <DeleteButton onClick={handleDeleteTodo} aria-label='delete todo'>x</DeleteButton>
     </StyledTodoItem>
   )

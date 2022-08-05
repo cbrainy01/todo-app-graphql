@@ -14,15 +14,15 @@ function Todos({todos}) {
 
     const[{isOver}, drop] = useDrop(() => ({
         accept: "todoCard",
-        drop: (item) => moveToTodos(item.id),
+        drop: (item) => moveToTodos(item.id, item.status),
         collect: (monitor) => ({
             isOver: !!monitor.isOver(),
         })
     }))
 
-    async function moveToTodos(cardId) {
-        // if() {}
-        console.log("cardId: ", cardId, " to todos");
+    async function moveToTodos(cardId, cardOrigin) {
+        // console.log("cardId: ", cardId, " to todos");
+        if(cardOrigin === "TODO") { return }
         await updateTodo({
             variables: { id: cardId, status: "TODO" },
             refetchQueries: [
