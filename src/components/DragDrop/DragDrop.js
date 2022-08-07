@@ -7,19 +7,6 @@ import Completed from '../Completed/Completed';
 
 function DragDrop({todos}) {
 
-    // move this to in progress component
-    // const[{isOver}, drop] = useDrop(() => ({
-    //     accept: "todoCard",
-    //     drop: (item) => moveToProgress(item.id),
-    //     collect: (monitor) => ({
-    //         isOver: !!monitor.isOver(),
-    //     })
-    // }))
-
-    // function moveToProgress(cardId) {
-    //     console.log("cardId: ", cardId);
-    // }
-
     // const [start, setStart] = useState([])
     // const [middle, setMiddle] = useState([])
     // const [end, setEnd] = useState([])
@@ -35,7 +22,6 @@ function DragDrop({todos}) {
     // }
 
   return (
-    // <StyledDragDrop ref={drop}>
     <StyledDragDrop>
             <Todos todos={todos}/>
             <Progress todos={todos}/>

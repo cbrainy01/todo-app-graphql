@@ -27,13 +27,10 @@ function AddTodo() {
 
   return (
     <StyledAddTodo>
-    <InputContainer>
     <form onSubmit={handleSubmit}>
         <TodoInput placeholder='add todo...' value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
-        {/* <SubmitTodo value="submit" type="submit" /> */}
-        <button>Submit</button>
+        <SubmitTodo value="ADD NEW" type="submit" />
     </form>
-    </InputContainer>
     </StyledAddTodo>
   )
 }
