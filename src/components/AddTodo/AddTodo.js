@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyledAddTodo } from './AddTodo.styles';
+import { InputContainer, StyledAddTodo, SubmitTodo, TodoInput } from './AddTodo.styles';
 import { useMutation } from '@apollo/client';
 import { ADD_TODO } from '../../graphql/mutations';
 import { GET_TODOS } from '../../graphql/queries';
@@ -27,10 +27,13 @@ function AddTodo() {
 
   return (
     <StyledAddTodo>
+    <InputContainer>
     <form onSubmit={handleSubmit}>
-        <input placeholder='add todo...' value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
-        <input value="submit" type="submit" />
+        <TodoInput placeholder='add todo...' value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
+        {/* <SubmitTodo value="submit" type="submit" /> */}
+        <button>Submit</button>
     </form>
+    </InputContainer>
     </StyledAddTodo>
   )
 }

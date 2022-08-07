@@ -3,6 +3,6 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: lightblue;
+    background: rgb(218, 10, 10);
     /* overflow-x: hidden; */
 }

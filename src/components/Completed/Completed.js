@@ -35,7 +35,7 @@ function Completed({todos}) {
   
     return (
     <StyledCompleted ref={drop}>
-        Completed
+        <h2>Completed</h2>
         {renderCompleted}
     </StyledCompleted>
   )

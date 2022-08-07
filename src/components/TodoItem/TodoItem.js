@@ -11,7 +11,7 @@ function TodoItem({todoData}) {
 
     const [ {isDragging}, drag ] = useDrag(() => ({
         type: "todoCard",
-        item: {id: todoData.id, status: todoData.status},
+        item: {id: todoData.id, status: todoData.status, title: todoData.title},
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging(),
         })

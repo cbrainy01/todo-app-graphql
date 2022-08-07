@@ -47,9 +47,8 @@ function App() {
   return (
     <DndProvider backend={HTML5Backend}>
     <StyledApp>
-       TODO App
-       <AddTodo/>
        <DragDrop todos={data.todos}/>
+       <AddTodo/>
        {/* {renderTodos} */}
     </StyledApp>
     </DndProvider>

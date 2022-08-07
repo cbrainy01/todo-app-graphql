@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const StyledDragDrop = styled.div`
-    margin-top: 15px;
+    height: 89vh;    
+    // margin-top: 15px;
     display: flex;
-    justify-content: space-between;
-    // background: pink;
+    // justify-content: space-between;
+    // width: 100%;
     > div {
-        border: solid grey 2px;
-        border-radius: 5px;
-        width: 30%;
-        // height: 100%;
+        // border: solid grey 2px;
+        // border-radius: 5px;
+        width: 33%;
+        padding: 0 10px 0 10px;
     }
 `

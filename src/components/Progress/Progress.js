@@ -26,14 +26,14 @@ function Progress({todos}) {
         if(cardOrigin === "IN_PROGRESS") { return }
         await updateTodo({
             variables: { id: cardId, status: "IN_PROGRESS" },
-            refetchQueries: [
-                { query: GET_TODOS }
-            ]
+            // refetchQueries: [
+            //     { query: GET_TODOS }
+            // ]
         })
     }
   return (
     <StyledProgress ref={drop}>
-        In Progress
+        <h2>In Progress</h2>
         {renderInProgress}
     </StyledProgress>
   )
